@@ -16,7 +16,7 @@ class FileStorage:
     __objects = {}
     class_dict = {"BaseModel": BaseModel, "User": User,
                   "Amenity": Amenity, "place": Place,
-                  "City": City, Review": Review, "State": State}
+                  "City": City, "Review": Review, "State": State}
 
     def all(self):
         """returns the  dictionary __objects"""
