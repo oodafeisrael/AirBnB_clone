@@ -8,8 +8,8 @@ from models.place import Place
 from models.amenity import Amenity
 from models.review import Review
 from models import storage
-import cmd
 import re
+from shlex import split
 
 
 def parse_arguments(args):
@@ -89,8 +89,7 @@ class HBNBCommand(cmd.Cmd):
                 attr_and_value = (match_attr_and_value.group(
                     1) or "") + " " + (
                       match_attr_and_value.group(2) or "")
-        command = method + " " + classname + " " + uid + " " +
-        attr_and_value
+        command = method + " " + classname + " " + uid + " " + attr_and_value
         self.onecmd(command)
         return command
 
@@ -132,7 +131,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, args):
-        """Prints the string representation of an instance""".
+        """Prints the string representation of an instance"""
 
         arg_list = parse_arguments(args)
         obj_dict = storage.all()
@@ -158,8 +157,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif len(arg_list) == 1:
             print("** instance id missing **")
-        elif "{}.{}".format(arg_list[0], arg_list[1]) not in
-        obj_dict.keys():
+        elif "{}.{}".format(arg_list[0], arg_list[1]) not in obj_dict.keys():
             print("** no instance found **")
         else:
             del obj_dict["{}.{}".format(arg_list[0], arg_list[1])]
@@ -171,8 +169,7 @@ class HBNBCommand(cmd.Cmd):
         all instances
         """
         arg_list = parse_arguments(args)
-        if len(arg_list) > 0 and arg_list[0] not in
-        HBNBCommand.valid_classes:
+        if len(arg_list) > 0 and arg_list[0] not in HBNBCommand.valid_classes:
             print("** class doesn't exist **")
         else:
             obj_list = [str(obj) for obj in storage.all().values()
@@ -237,4 +234,4 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
-    HBNBCommand().cmdloop()
+    HBNBCommand().cmdloop()e
