@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import json
+import models
 from models.base_model import BaseModel
 from models.user import User
 from models.amenity import Amenity
