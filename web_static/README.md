@@ -1,0 +1,1 @@
+AirBnB clone - Web static. This stage is to  “design” / “sketch” / “prototype” each element. We are going to Create simple HTML static pages, Style guide with fake contents. No javascript and no data loaded from anything
